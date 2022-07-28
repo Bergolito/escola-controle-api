@@ -32,7 +32,6 @@ public class Aluno {
 	private LocalDate dataNasc;
 	
 	@Column(nullable = false, name = "TIPO")
-	//@Enumerated(EnumType.STRING)
 	private String tipo = TipoAluno.CONVENCIONAL.toString();
 
 	public Aluno() {

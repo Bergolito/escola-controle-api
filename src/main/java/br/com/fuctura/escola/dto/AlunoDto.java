@@ -4,16 +4,21 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
+
 import br.com.fuctura.escola.modelo.Aluno;
 
 public class AlunoDto {
 
 	private Long id;
 	
-	//@NotNull @NotEmpty @Length(min = 11, max = 11)
+	@NotNull @NotEmpty @Length(min = 11, max = 11)
 	private String cpf;
 	
-	//@NotNull @NotEmpty @Length(min = 5)
+	@NotNull @NotEmpty @Length(min = 5)
 	private String nome;
 	
 	private String email;
