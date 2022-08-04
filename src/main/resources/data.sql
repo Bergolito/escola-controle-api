@@ -9,11 +9,11 @@ INSERT INTO TOPICO(titulo, mensagem, data_criacao, status, autor_id, curso_id) V
 INSERT INTO TOPICO(titulo, mensagem, data_criacao, status, autor_id, curso_id) VALUES('Dúvida 3', 'Tag HTML', '2019-05-05 20:00:00', 'NAO_RESPONDIDO', 1, 2);
 */
 
-INSERT INTO ALUNO (cpf, nome, email, fone, DATA_NASC, tipo) VALUES  
-('11111111111', 'Huguinho', 'aluno111@escola.com', '81 1234-5555', '2000-05-10','CONVENCIONAL');
+INSERT INTO ALUNO (cpf, nome, email, fone, tipo) VALUES  
+('11111111111', 'Huguinho', 'aluno111@escola.com', '81 1234-5555', 'CONVENCIONAL');
 
-INSERT INTO ALUNO (cpf, nome, email, fone, DATA_NASC, tipo) VALUES  
-('22222222222', 'Zezinho', 'aluno222@escola.com', '81 1234-5555', '1999-03-23','CONVENCIONAL');
+INSERT INTO ALUNO (cpf, nome, email, fone, tipo) VALUES  
+('22222222222', 'Zezinho', 'aluno222@escola.com', '81 1234-5555', 'CONVENCIONAL');
 
-INSERT INTO ALUNO (cpf, nome, email, fone, DATA_NASC, tipo) VALUES  
-('33333333333', 'Luizinho', 'aluno333@escola.com', '81 1234-5555', '1995-11-15','MONITOR');
+INSERT INTO ALUNO (cpf, nome, email, fone, tipo) VALUES  
+('33333333333', 'Luizinho', 'aluno333@escola.com', '81 1234-5555', 'MONITOR');

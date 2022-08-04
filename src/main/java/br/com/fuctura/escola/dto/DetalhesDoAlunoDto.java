@@ -1,8 +1,6 @@
 package br.com.fuctura.escola.dto;
 
-import java.time.LocalDate;
-
-import br.com.fuctura.escola.modelo.Aluno;
+import br.com.fuctura.escola.model.Aluno;
 
 
 public class DetalhesDoAlunoDto {
@@ -12,7 +10,6 @@ public class DetalhesDoAlunoDto {
 	private String nome;
 	private String email;
 	private String fone;
-	private LocalDate dataNasc;
 	private String tipo;
 	
 	public DetalhesDoAlunoDto(Aluno aluno) {
@@ -21,7 +18,6 @@ public class DetalhesDoAlunoDto {
 		this.nome = aluno.getNome();
 		this.email = aluno.getEmail();
 		this.fone = aluno.getFone();
-		this.dataNasc = aluno.getDataNasc();
 		this.tipo = aluno.getTipo().toString();
 	}
 
@@ -45,13 +41,8 @@ public class DetalhesDoAlunoDto {
 		return fone;
 	}
 
-	public LocalDate getDataNasc() {
-		return dataNasc;
-	}
-
 	public String getTipo() {
 		return tipo;
 	}
-
 	
 }

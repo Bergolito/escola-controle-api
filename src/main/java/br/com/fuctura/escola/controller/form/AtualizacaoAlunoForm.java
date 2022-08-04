@@ -2,6 +2,7 @@ package br.com.fuctura.escola.controller.form;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -9,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.lang.Nullable;
 
-import br.com.fuctura.escola.modelo.Aluno;
+import br.com.fuctura.escola.model.Aluno;
 import br.com.fuctura.escola.repository.AlunoRepository;
 
 public class AtualizacaoAlunoForm {
@@ -23,9 +24,6 @@ public class AtualizacaoAlunoForm {
 	@Nullable
 	private String fone;
 
-	@Nullable
-	private String dataNasc;
-	
 	@Nullable
 	private String tipo;
 
@@ -41,28 +39,23 @@ public class AtualizacaoAlunoForm {
 		return fone;
 	}
 
-	public String getDataNasc() {
-		return dataNasc;
-	}
-
 	public String getTipo() {
 		return tipo;
 	}
 
 	public Aluno atualizar(Long id, AlunoRepository alunoRepository) {
-		Aluno aluno = alunoRepository.getOne(id);
-		
-		aluno.setNome(this.nome);
-		aluno.setEmail(this.email);
-		aluno.setFone(this.fone);
+		Optional<Aluno> aluno = alunoRepository.findById(id);
 
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-		LocalDate dateTime = LocalDate.parse(this.dataNasc, formatter);
-		aluno.setDataNasc(dateTime);
+		if(aluno.isPresent()) {
+			aluno.get().setNome(this.nome);
+			aluno.get().setEmail(this.email);
+			aluno.get().setFone(this.fone);
+			aluno.get().setTipo(this.tipo);
 		
-		aluno.setTipo(this.tipo);
+			return aluno.get();
+		}
 		
-		return aluno;
+		return null;
 	}
 	
 }

@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.fuctura.escola.modelo.Aluno;
+import br.com.fuctura.escola.model.Aluno;
 
 public interface AlunoRepository extends JpaRepository<Aluno, Long> {
 

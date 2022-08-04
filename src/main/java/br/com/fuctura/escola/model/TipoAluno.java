@@ -1,4 +1,4 @@
-package br.com.fuctura.escola.modelo;
+package br.com.fuctura.escola.model;
 
 public enum TipoAluno {
 	

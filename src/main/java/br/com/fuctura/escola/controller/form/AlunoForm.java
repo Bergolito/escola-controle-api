@@ -1,15 +1,12 @@
 package br.com.fuctura.escola.controller.form;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.springframework.lang.Nullable;
 
-import br.com.fuctura.escola.modelo.Aluno;
+import br.com.fuctura.escola.model.Aluno;
 import br.com.fuctura.escola.repository.AlunoRepository;
 
 public class AlunoForm {
@@ -57,10 +54,7 @@ public class AlunoForm {
 	}
 	
 	public Aluno converterDTO(AlunoRepository alunoRepository) {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-		LocalDate dateTime = LocalDate.parse(dataNasc, formatter);
-		
-		Aluno aluno = new Aluno(cpf, nome, email, fone, dateTime, tipo); 
+		Aluno aluno = new Aluno(cpf, nome, email, fone, tipo); 
 		return aluno;
 	}
 

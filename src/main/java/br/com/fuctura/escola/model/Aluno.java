@@ -1,6 +1,4 @@
-package br.com.fuctura.escola.modelo;
-
-import java.time.LocalDate;
+package br.com.fuctura.escola.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,9 +26,6 @@ public class Aluno {
 	@Column(nullable = false, name = "FONE")
 	private String fone;
 
-	@Column(nullable = false, name = "DATA_NASC")
-	private LocalDate dataNasc;
-	
 	@Column(nullable = false, name = "TIPO")
 	private String tipo = TipoAluno.CONVENCIONAL.toString();
 
@@ -38,13 +33,17 @@ public class Aluno {
 		//
 	}
 
-	public Aluno(String cpf, String nome, String email, String fone, LocalDate dataNasc, String tipo) {
-		//
+	public Aluno(String cpf, String nome, String email) {
+		this.cpf = cpf;
+		this.nome = nome;
+		this.email = email;
+	}
+
+	public Aluno(String cpf, String nome, String email, String fone, String tipo) {
 		this.cpf = cpf;
 		this.nome = nome;
 		this.email = email;
 		this.fone = fone;
-		this.dataNasc = dataNasc;
 		this.tipo = tipo;
 	}
 
@@ -86,14 +85,6 @@ public class Aluno {
 
 	public void setFone(String fone) {
 		this.fone = fone;
-	}
-
-	public LocalDate getDataNasc() {
-		return dataNasc;
-	}
-
-	public void setDataNasc(LocalDate dataNasc) {
-		this.dataNasc = dataNasc;
 	}
 
 	public String getTipo() {

@@ -1,6 +1,5 @@
 package br.com.fuctura.escola.controller;
 
-import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,6 +7,7 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +23,7 @@ import br.com.fuctura.escola.controller.form.AlunoForm;
 import br.com.fuctura.escola.controller.form.AtualizacaoAlunoForm;
 import br.com.fuctura.escola.dto.AlunoDto;
 import br.com.fuctura.escola.dto.DetalhesDoAlunoDto;
-import br.com.fuctura.escola.modelo.Aluno;
+import br.com.fuctura.escola.model.Aluno;
 import br.com.fuctura.escola.repository.AlunoRepository;
 
 @RestController
@@ -50,8 +50,9 @@ public class AlunosController {
 		Aluno aluno = form.converterDTO(alunoRepository);
 		alunoRepository.save(aluno);
 		
-		URI uri = uriBuilder.path("/alunos/{id}").buildAndExpand(aluno.getId()).toUri();
-		return ResponseEntity.created(uri).body(new AlunoDto(aluno));
+		//URI uri = uriBuilder.path("/alunos/{id}").buildAndExpand(aluno.getId()).toUri();
+		//return ResponseEntity.created(uri).body(new AlunoDto(aluno));
+		return new ResponseEntity<AlunoDto>(new AlunoDto(aluno), HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/{id}")
